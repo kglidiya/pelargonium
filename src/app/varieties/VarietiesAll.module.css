@@ -1,0 +1,21 @@
+.container {
+  background: url("../../../public/images/b1.jpg") repeat center / 250%;
+  /* background-size: 50%;
+  background-repeat: repeat; */
+  width: 100%;
+  height: auto;
+  position: relative;
+  /* background-size: cover; */
+  /* overflow: hidden; */
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 130px 0 400px 0;
+  margin: auto;
+  width: 90%;
+}

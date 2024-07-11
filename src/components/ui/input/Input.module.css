@@ -1,0 +1,52 @@
+.container {
+	position: relative;
+	width: 100%;
+}
+
+.input {
+	display: block;
+	height: 45px;
+	border: 1px solid white;
+	width: 100%;
+	padding-left: 10px;
+	padding-right: 35px;
+	outline: none;
+	transition: all 0.2s linear;
+	box-sizing: border-box;
+	font-size: 16px;
+	background-color: transparent;
+	/* background-color: #bbb8b8; */
+	color: white;
+}
+
+/* .input:focus {
+	border: 2px solid white
+}
+
+.input:hover {
+	border: 2px solid white
+} */
+.input::placeholder {
+	color: white;
+}
+.error {
+	color: red;
+	position: absolute;
+	font-weight: bold;
+	top: 10px;
+	right: 10px;
+}
+
+
+
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-box-shadow: 0 0 0 30px white inset !important;
+} */
+@media (max-width: 768px) {
+	.input {
+		height: 40px;
+	}
+}

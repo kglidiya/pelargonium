@@ -1,0 +1,13 @@
+.image {
+  width: 100%;
+  height: 100vh;
+  /* height: calc(var(--vh, 1vh) * 100); */
+  object-fit: cover;
+  object-position: left;
+}
+
+@media (max-width: 768px) {
+  .image {
+    object-position: top center;
+  }
+}

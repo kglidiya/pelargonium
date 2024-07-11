@@ -1,0 +1,170 @@
+.container {
+  background: url("../../../../public/images/b1.jpg");
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  /* overflow: hidden; */
+}
+
+
+.whiteContainer {
+  width: 50%;
+  height: 100vh;
+  background-color: white;
+  /* margin-top: -125px; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* position: relative; */
+  /* flex-direction: row; */
+
+}
+
+.slider {
+  /* width: 90%;
+    height: 70%; */
+  /* margin-top: -125px; */
+  width: 40vw;
+  height: 47vh;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  /* z-index: -1; */
+  transform: translate(-50%, -50%);
+}
+
+.description {
+    width: 20vw;
+    height: 60vh;
+    margin: 0 100px;
+    overflow: hidden;
+    text-align: justify;
+   
+}
+
+.price {
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.paragraph {
+  font-size: 16px;
+  padding: 5px 0;
+  line-height: 22px;
+}
+
+
+
+.window_grey {
+  width: 20vw;
+  height: 20vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.formContainer {
+  width: 40vw;
+}
+
+@media (max-width: 768px) {
+  .container {
+    height: 100%;
+    overflow: auto;
+  }
+  .whiteContainer {
+    position: absolute;
+    width: 100%;
+    height: auto;
+/* 
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; */
+     top: 145vh;
+     right: 0;
+     z-index: 2;
+     /* background-color: aqua; */
+  }
+
+  .description {
+    width: 90%;
+    margin: 70px auto;
+  }
+  .paragraph {
+    font-size: 14px;
+    padding: 5px 0;
+    line-height: 18px;
+  }
+  .price {
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-weight: 300;
+  }
+  .slider {
+   
+    width: 100%;
+    height: 60vh;
+    left: 0;
+    top: 130px;
+    transform: translate(0, 0);
+
+  }
+  /* .whiteContainer {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 135vh auto 30px auto;
+     background-color: aqua;
+  }
+
+  .description {
+    width: 90%;
+    margin: 70px auto;
+  }
+  .paragraph {
+    font-size: 14px;
+    padding: 5px 0;
+    line-height: 18px;
+  }
+  
+  .slider {
+    margin-top: -125px;
+    width: 100%;
+    height: 60vh;
+    left: 0;
+    top: calc(20vh + 90px);
+    transform: translate(0, 0);
+
+  }
+
+
+  
+  .window_grey {
+    width: 60vw;
+    height: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+    object-fit: contain;
+  } */
+  .window_grey {
+    bottom: 20px;
+    width: 60vw;
+    height: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+    object-fit: contain;
+  }
+  .formContainer {
+    width: 90%;
+    margin-top: -20px;
+  }
+}
