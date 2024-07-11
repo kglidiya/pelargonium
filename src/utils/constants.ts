@@ -57,6 +57,13 @@ export const cardsData = [
     price: "800 руб",
     available: true,
   },
+  {
+    id: "9",
+    title: "Pac-Salmon Queen",
+    image: "/images/18.jpeg",
+    price: "800 руб",
+    available: true,
+  },
   
 ];
 
