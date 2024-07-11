@@ -140,7 +140,7 @@ contain, */
   .bascket {
     left: 50%;
     width: 120px;
-    bottom: 100vh;
+    bottom: 100%;
     transform: translate(-50%, 0);
   }
   .cards {

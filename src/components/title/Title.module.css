@@ -40,7 +40,7 @@
 
 @media (max-width: 576px) {
   .title {
-    position: fixed;
+    /* position: fixed; */
 
     width: 70%;
     font-size: 42px;
