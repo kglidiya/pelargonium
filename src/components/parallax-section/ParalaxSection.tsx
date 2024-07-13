@@ -54,11 +54,11 @@ export default function ParallaxSection() {
             cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum
           </p>
-          <p className={styles.paragraph}>
+          {/* <p className={styles.paragraph}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation
-          </p>
+          </p> */}
         </div>
       </ParallaxLayer>
 
