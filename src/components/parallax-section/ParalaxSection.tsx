@@ -29,6 +29,7 @@ export default function ParallaxSection() {
           height={0}
           sizes="100vw"
           className={styles.bascket}
+          style={{zIndex: 7}}
         />
         <div className={styles.form}>
           <Form placeholder="Ваше сообщение" text="Отправить" width="240px" />

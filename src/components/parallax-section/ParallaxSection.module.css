@@ -85,8 +85,8 @@ contain, */
 }
 .bascket {
   position: absolute;
-  bottom: 340px;
-  /* bottom: 0; */
+  /* bottom: 340px; */
+  bottom: 0;
   left: 170px;
   width: 220px;
   height: auto;
@@ -194,7 +194,7 @@ contain, */
     width: 90%;
     /* margin: auto;
     margin-top: 20vh; */
-    margin-top: 10vh; 
+    margin-top: 5vh; 
   }
 
   .image1,
