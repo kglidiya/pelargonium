@@ -32,9 +32,10 @@ export default function ParallaxSection() {
           style={{zIndex: 7}}
         />
         <div className={styles.form}>
+        <VarietyAnimation  top={'40px'}/>
           <Form placeholder="Ваше сообщение" text="Отправить" width="240px" />
           <div className={styles.animatedGroup}>
-          <VarietyAnimation  top={'350px'}/>
+          
         </div>
         </div>
     

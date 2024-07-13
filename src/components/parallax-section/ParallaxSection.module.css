@@ -194,7 +194,8 @@ contain, */
     width: 90%;
     /* margin: auto;
     margin-top: 20vh; */
-    margin-top: 5vh; 
+    justify-content: flex-end;
+    padding-bottom: 40px;
   }
 
   .image1,
