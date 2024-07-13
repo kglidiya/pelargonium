@@ -17,10 +17,20 @@ const gogolFont = localFont({
   ],
   variable: "--gogol-font",
 });
-export default function Title({ text }: { text: string }) {
+interface ITitle {
+  text: string;
+  width?: string;
+  boxShadow?: string;
+}
+export default function Title({ text, width, boxShadow }: ITitle) {
   return (
     <Link href={"/"} scroll={false}>
-      <h1 className={`${styles.title} ${gogolFont.variable}`}>{text}</h1>
+      <h1
+        className={`${styles.title} ${gogolFont.variable}`}
+        style={{ width, boxShadow }}
+      >
+        {text}
+      </h1>
     </Link>
   );
 }

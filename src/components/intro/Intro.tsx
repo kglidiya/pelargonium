@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import { useMediaQuery } from "../../lib/chakra-ui";
 import styles from "./Intro.module.css";
 import Title from "../title/Title";
 import Carousel from "../carousel/Carousel";
@@ -7,7 +8,7 @@ import { useSwipeable } from "react-swipeable";
 
 export default function Intro() {
   const ref = useRef<HTMLDivElement | null>(null);
-
+  const [tablet] = useMediaQuery("(max-width: 768px)");
   useEffect(() => {
     const setViewHeight = () => {
       document.documentElement.style.setProperty(
@@ -23,7 +24,7 @@ export default function Intro() {
   }, []);
 
   const scrollDown = () => {
-  console.log('scrollDown', ref.current?.clientHeight)
+    console.log("scrollDown", ref.current?.clientHeight);
     window.scrollTo({
       top: ref.current?.clientHeight,
       left: 0,
@@ -32,7 +33,7 @@ export default function Intro() {
   };
 
   const scrollTop = () => {
-    console.log('scrollTop')
+    console.log("scrollTop");
     window.scrollTo({
       top: 0,
       left: 0,
@@ -75,8 +76,12 @@ export default function Intro() {
   };
   return (
     <section className={styles.intro} {...handlers} ref={refPassthrough}>
-      <Title text="Сортовые пеларгонии" />
-      <div className={styles.mask}></div>
+      {tablet && <Title text="Сортовые пеларгонии" />}
+      <div className={styles.mask}>
+        {!tablet && (
+          <Title text="Сортовые пеларгонии" width="100%" boxShadow="none" />
+        )}
+      </div>
       <Carousel />
     </section>
   );
