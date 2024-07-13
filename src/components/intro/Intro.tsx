@@ -68,7 +68,7 @@ export default function Intro() {
       if (scrollContainer)
         scrollContainer.removeEventListener("scroll", onWheel);
     };
-  }, []);
+  }, [ref]);
 
   const refPassthrough = (el: any) => {
     handlers.ref(el);

@@ -29,16 +29,14 @@ export default function ParallaxSection() {
           height={0}
           sizes="100vw"
           className={styles.bascket}
-          style={{zIndex: 7}}
+          style={{ zIndex: 7 }}
         />
         <div className={styles.form}>
-        <VarietyAnimation  top={'40px'}/>
           <Form placeholder="Ваше сообщение" text="Отправить" width="240px" />
           <div className={styles.animatedGroup}>
-          
+            <VarietyAnimation top={"280px"} />
+          </div>
         </div>
-        </div>
-    
       </ParallaxLayer>
 
       <ParallaxLayer offset={0} speed={0} factor={3} style={{ zIndex: 2 }}>
