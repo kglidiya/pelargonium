@@ -25,7 +25,7 @@ export default function Intro() {
 
   const scrollDown = () => {
     console.log("scrollDown", ref.current?.clientHeight);
-    window.scroll({
+    window.scrollBy({
       top: ref.current?.clientHeight,
       left: 0,
       behavior: "smooth",
@@ -34,7 +34,7 @@ export default function Intro() {
 
   const scrollTop = () => {
     console.log("scrollTop");
-    window.scroll({
+    window.scrollBy({
       top: 0,
       left: 0,
       behavior: "smooth",

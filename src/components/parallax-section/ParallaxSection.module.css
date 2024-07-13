@@ -131,6 +131,10 @@ contain, */
 .animatedGroup {
   display: none;
 }
+
+.animation_desktop {
+  display: flex;
+}
 @media (max-width: 768px) {
   .container {
     background: url("../../../public/images/w1.png") no-repeat 35% 75%/35vh,
@@ -191,6 +195,9 @@ contain, */
     padding-top: 15px;
   }
   .form_desktop {
+    display: none;
+  }
+  .animation_desktop {
     display: none;
   }
   .form_mobile {

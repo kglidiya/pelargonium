@@ -123,6 +123,7 @@ export default function ParallaxSection() {
           alignItems: "center",
           justifyContent: "center",
         }}
+        
       >
         <Image
           alt=""
@@ -141,6 +142,7 @@ export default function ParallaxSection() {
           position: "relative",
           zIndex: 6,
         }}
+        className={styles.animation_desktop}
       >
         <Image
           alt="горшок"
