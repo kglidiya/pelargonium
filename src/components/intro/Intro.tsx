@@ -5,6 +5,7 @@ import styles from "./Intro.module.css";
 import Title from "../title/Title";
 import Carousel from "../carousel/Carousel";
 import { useSwipeable } from "react-swipeable";
+import { motion } from "framer-motion";
 
 export default function Intro() {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -24,9 +25,12 @@ export default function Intro() {
   }, []);
 
   const scrollDown = () => {
-    console.log("scrollDown", ref.current?.clientHeight);
-    window.scrollBy({
-      top: ref.current?.clientHeight,
+    // e.preventDefault();
+    // console.log("scrollDown", ref.current?.clientHeight);
+    // console.log(ref.current?.getBoundingClientRect().height);
+    window.scrollTo({
+      // top: ref.current?.clientHeight,
+      top: ref.current?.getBoundingClientRect().height,
       left: 0,
       behavior: "smooth",
     });
@@ -34,7 +38,7 @@ export default function Intro() {
 
   const scrollTop = () => {
     console.log("scrollTop");
-    window.scrollBy({
+    window.scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",
@@ -45,6 +49,7 @@ export default function Intro() {
       scrollTop();
     },
     onSwipedUp: () => {
+      console.log("scrollDown", ref.current?.clientHeight);
       scrollDown();
     },
   });
@@ -68,14 +73,14 @@ export default function Intro() {
       if (scrollContainer)
         scrollContainer.removeEventListener("wheel", onWheel);
     };
-  }, [ref]);
+  }, []);
 
   const refPassthrough = (el: any) => {
     handlers.ref(el);
     ref.current = el;
   };
   return (
-    <section className={styles.intro} {...handlers} ref={refPassthrough}>
+    <motion.section className={styles.intro} {...handlers} ref={refPassthrough}>
       {tablet && <Title text="Сортовые пеларгонии" />}
       <div className={styles.mask}>
         {!tablet && (
@@ -83,6 +88,6 @@ export default function Intro() {
         )}
       </div>
       <Carousel />
-    </section>
+    </motion.section>
   );
 }
