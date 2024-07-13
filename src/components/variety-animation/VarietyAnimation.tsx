@@ -6,10 +6,11 @@ import Image from "next/image";
 interface IAnimation {
   bottom?: number;
   top?: number | string;
+  width?: string;
 }
-export default function VarietyAnimation({bottom, top}: IAnimation) {
+export default function VarietyAnimation({bottom, top, width}: IAnimation) {
   return (
-    <div className={styles.animatedGroup} style={{bottom, top}}>
+    <div className={styles.animatedGroup} style={{bottom, top, width}}>
       <Image
         alt="fff"
         src="/images/w6.png"

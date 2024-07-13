@@ -51,7 +51,7 @@ export default function Intro() {
 
   useEffect(() => {
     const scrollContainer = ref.current;
-    const onWheel = (e: WheelEvent) => {
+    const onWheel = (e: any) => {
       e.preventDefault();
       if (e.deltaY > 0) {
         scrollDown();
@@ -61,12 +61,12 @@ export default function Intro() {
       }
     };
     if (scrollContainer) {
-      scrollContainer.addEventListener("wheel", onWheel, { passive: false });
+      scrollContainer.addEventListener("scroll", onWheel, { passive: false });
     }
 
     return () => {
       if (scrollContainer)
-        scrollContainer.removeEventListener("wheel", onWheel);
+        scrollContainer.removeEventListener("scroll", onWheel);
     };
   }, []);
 
