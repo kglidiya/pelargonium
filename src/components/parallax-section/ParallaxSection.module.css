@@ -1,8 +1,7 @@
 .container {
   background: url("../../../public/images/w1.png") no-repeat 35% 95%/35vh,
-  url("../../../public/images/cover.png") no-repeat 105% 10%/55vh,
-  #dbd9dd;
-    /* rgb(230, 227, 233); */
+    url("../../../public/images/cover.png") no-repeat 105% 10%/55vh, #dbd9dd;
+  /* rgb(230, 227, 233); */
 }
 /* background: url(../../../public/images/gerani3_mirrow.png) no-repeat left /
 contain, */
@@ -46,7 +45,6 @@ contain, */
   /* margin: auto; */
   margin-top: 50px;
   flex-wrap: wrap;
-
 }
 
 .cards::-webkit-scrollbar {
@@ -64,8 +62,8 @@ contain, */
 }
 .container2 {
   /* background-color: rgba(150, 149, 149, 0.5); */
-  background: url("../../../public/images/w2.png") repeat 1% 75%/35vh, rgba(150, 149, 149, 0.5);
-
+  background: url("../../../public/images/w2.png") repeat 1% 75%/35vh,
+    rgba(150, 149, 149, 0.5);
 }
 
 .container3 {
@@ -74,7 +72,7 @@ contain, */
   justify-content: center;
   align-items: center;
   background: url("../../../public/images/b1.jpg");
-  /* z-index: 5; */
+  /* z-index: 3; */
 }
 .flower {
   height: 80vh;
@@ -85,8 +83,8 @@ contain, */
 }
 .bascket {
   position: absolute;
-  /* bottom: 340px; */
-  bottom: 0;
+  bottom: 340px;
+  /* bottom: 0; */
   left: 170px;
   width: 220px;
   height: auto;
@@ -94,7 +92,7 @@ contain, */
   z-index: 55;
 }
 
-.form {
+.form_desktop {
   width: 40vw;
   margin: auto;
   height: 100%;
@@ -103,7 +101,9 @@ contain, */
   align-items: center;
   /* z-index: 15; */
 }
-
+.form_mobile {
+  display: none;
+}
 .image1 {
   display: block;
   width: 20vw;
@@ -134,7 +134,7 @@ contain, */
 @media (max-width: 768px) {
   .container {
     background: url("../../../public/images/w1.png") no-repeat 35% 75%/35vh,
-    rgb(230, 227, 233);
+      rgb(230, 227, 233);
   }
   .container2 {
     background-color: rgb(230, 227, 233);
@@ -190,8 +190,17 @@ contain, */
   .paragraph:nth-of-type(1) {
     padding-top: 15px;
   }
-  .form {
+  .form_desktop {
+    display: none;
+  }
+  .form_mobile {
     width: 90%;
+    height: 100%;
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     /* margin: auto;
     margin-top: 20vh; */
     /* justify-content: flex-end; */

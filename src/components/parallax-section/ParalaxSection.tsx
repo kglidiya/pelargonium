@@ -22,7 +22,7 @@ export default function ParallaxSection() {
       <ParallaxLayer offset={2} speed={1} />
       {/* <ParallaxLayer offset={2} speed={1} className={styles.container3}/> */}
       <ParallaxLayer offset={3} speed={0.3} className={styles.container3}>
-        <Image
+        {/* <Image
           alt="горшок"
           src="/images/bf.png"
           width={0}
@@ -30,8 +30,8 @@ export default function ParallaxSection() {
           sizes="100vw"
           className={styles.bascket}
           style={{ zIndex: 7 }}
-        />
-        <div className={styles.form}>
+        /> */}
+        <div className={styles.form_mobile}>
           <Form placeholder="Ваше сообщение" text="Отправить" width="240px" />
           <div className={styles.animatedGroup}>
             <VarietyAnimation top={"280px"} />
@@ -134,7 +134,7 @@ export default function ParallaxSection() {
         />
       </ParallaxLayer>
 
-      {/* <ParallaxLayer
+      <ParallaxLayer
         offset={3.4}
         speed={-0}
         style={{
@@ -150,10 +150,10 @@ export default function ParallaxSection() {
           sizes="100vw"
           className={styles.bascket}
         />
-        <div className={styles.form}>
+        <div className={styles.form_desktop}>
           <Form placeholder="Ваше сообщение" text="Отправить" width="240px" />
         </div>
-      </ParallaxLayer> */}
+      </ParallaxLayer>
     </Parallax>
   );
 }

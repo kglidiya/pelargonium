@@ -25,7 +25,7 @@ export default function Intro() {
 
   const scrollDown = () => {
     console.log("scrollDown", ref.current?.clientHeight);
-    document.documentElement.scrollTo({
+    window.scroll({
       top: ref.current?.clientHeight,
       left: 0,
       behavior: "smooth",
@@ -34,7 +34,7 @@ export default function Intro() {
 
   const scrollTop = () => {
     console.log("scrollTop");
-    document.documentElement.scrollTo({
+    window.scroll({
       top: 0,
       left: 0,
       behavior: "smooth",
@@ -51,7 +51,7 @@ export default function Intro() {
 
   useEffect(() => {
     const scrollContainer = ref.current;
-    const onWheel = (e: any) => {
+    const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       if (e.deltaY > 0) {
         scrollDown();
@@ -61,12 +61,12 @@ export default function Intro() {
       }
     };
     if (scrollContainer) {
-      scrollContainer.addEventListener("scroll", onWheel, { passive: false });
+      scrollContainer.addEventListener("wheel", onWheel, { passive: false });
     }
 
     return () => {
       if (scrollContainer)
-        scrollContainer.removeEventListener("scroll", onWheel);
+        scrollContainer.removeEventListener("wheel", onWheel);
     };
   }, [ref]);
 
