@@ -54,7 +54,7 @@ contain, */
 }
 
 .cards::-webkit-scrollbar-track {
-  background-color: var(--beige-dark);
+  background-color: transparent;
 }
 
 .cards::-webkit-scrollbar-thumb {
@@ -74,20 +74,24 @@ contain, */
   justify-content: center;
   align-items: center;
   background: url("../../../public/images/b1.jpg");
-  /* z-index: 3; */
+  /* z-index: 5; */
 }
 .flower {
   height: 80vh;
   width: auto;
   object-fit: contain;
+  position: relative;
+  /* z-index: 7; */
 }
 .bascket {
   position: absolute;
   bottom: 340px;
+  /* bottom: 0; */
   left: 170px;
   width: 220px;
   height: auto;
   object-fit: contain;
+  z-index: 55;
 }
 
 .form {
@@ -97,6 +101,7 @@ contain, */
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* z-index: 15; */
 }
 
 .image1 {
@@ -133,10 +138,15 @@ contain, */
   .flower {
     /* height: 52vh;
     width: 100%;
-    margin-top: -65px; */
+
     height: 40vh;
+    /* width: 30%; */
     width: 100%;
+
+    height: 40vh;
     margin-top: 10px;
+    margin-right: auto;
+    /* z-index: 7; */
   }
   .bascket {
     left: 50%;
@@ -159,6 +169,7 @@ contain, */
     /* padding-right: 0; */
     /* background-color: #ffffffb5; */
     padding: 0 20px;
+    /* z-index: ; */
   }
 
   .paragraph {
@@ -173,8 +184,9 @@ contain, */
   }
   .form {
     width: 90%;
-    margin: auto;
-    margin-top: 20vh;
+    /* margin: auto;
+    margin-top: 20vh; */
+    margin-top: 20vh; 
   }
 
   .image1,

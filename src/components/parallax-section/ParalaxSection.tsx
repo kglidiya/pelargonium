@@ -9,7 +9,6 @@ import Form from "../form/Form";
 import Image from "next/image";
 import { cardsData } from "@/utils/constants";
 
-
 import VarietiesLink from "../varieties-link/VarietiesLink";
 
 // import Modal from "../modal/Modal";
@@ -21,13 +20,21 @@ export default function ParallaxSection() {
       <ParallaxLayer offset={1} speed={1} className={styles.container2} />
       <ParallaxLayer offset={2} speed={1} />
       {/* <ParallaxLayer offset={2} speed={1} className={styles.container3}/> */}
-      <ParallaxLayer
-        offset={3}
-        speed={0}
-        className={styles.container3}
-      ></ParallaxLayer>
+      <ParallaxLayer offset={3} speed={0.3} className={styles.container3}>
+        {/* <Image
+          alt="горшок"
+          src="/images/bf.png"
+          width={0}
+          height={0}
+          sizes="100vw"
+          className={styles.bascket}
+        />
+        <div className={styles.form}>
+          <Form placeholder="Ваше сообщение" text="Отправить" width="240px" />
+        </div> */}
+      </ParallaxLayer>
 
-      <ParallaxLayer offset={0} speed={0} factor={3} style={{ zIndex: 5 }}>
+      <ParallaxLayer offset={0} speed={0} factor={3} style={{zIndex: 2}}>
         <div className={styles.cards}>
           {cardsData.map((card) => {
             return (
@@ -48,12 +55,12 @@ export default function ParallaxSection() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum
           </p>
-          <p className={styles.paragraph}>
+          {/* <p className={styles.paragraph}>
             Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
             cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum
-          </p>
+          </p> */}
           {/* <p className={styles.paragraph}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -73,7 +80,7 @@ export default function ParallaxSection() {
         />
       </ParallaxLayer>
 
-      <ParallaxLayer offset={0.1} speed={-1}>
+      <ParallaxLayer offset={0.1} speed={-1} >
         <Image
           alt="цветок"
           src="/images/geran1.png"
@@ -122,30 +129,12 @@ export default function ParallaxSection() {
         />
       </ParallaxLayer>
 
-      {/* <ParallaxLayer
-        offset={2.4}
-        speed={-0}
-        style={{
-          position: "relative",
-        }}
-      >
-        <div className={styles.form}>
-          <Form placeholder="Ваше сообщение" text="Отправить" />
-        </div>
-        <Image
-          alt="горшок"
-          src="/images/bf.png"
-          width={0}
-          height={0}
-          sizes="100vw"
-          className={styles.bascket}
-        />
-      </ParallaxLayer> */}
       <ParallaxLayer
         offset={3.4}
         speed={-0}
         style={{
           position: "relative",
+          zIndex: 6,
         }}
       >
         <Image

@@ -46,7 +46,7 @@ export default function Carousel() {
           display: "flex",
           flexDirection: !tablet ? "column": "row",
           gap: !tablet ?"10px": "5px",
-          bottom: !tablet ? "50%" : "36vh",
+          bottom: !tablet ? "50%" : "36%",
           width: !tablet ? "53%": "100%",
           right: 0,
           transform: !tablet ? "translate(0, 50%)": "",
