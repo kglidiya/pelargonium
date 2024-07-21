@@ -80,6 +80,44 @@
 .price {
   font-size: 18px;
 }
+
+.animation {
+  height: 45%;
+  width: 100%;
+  display: flex;
+ justify-content: center;
+ position: relative;
+}
+/* .flowerContainer {
+  width: fit-content;
+  position: absolute;
+
+  bottom: -25px;
+  right: 50%;
+  transform: translate(50%, 0);
+} */
+.flower {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  
+}
+.bascketContainer {
+  width: fit-content;
+  position: absolute;
+
+  bottom: -15px;
+  right: 50%;
+  transform: translate(50%, 0);
+}
+.bascket {
+
+  width: 70px;
+  height: auto;
+
+  object-fit: contain;
+
+}
 @media (max-width: 576px) {
   .wrapper {
     width: 100%;
@@ -100,4 +138,10 @@
     margin: 0;
     line-height: 32px;
   }
+
+  .animation {
+    height: 250px;
+  }
+
+
 }

@@ -7,7 +7,7 @@ interface IButton {
 }
 export default function Button({ text, onClick, width }: IButton) {
   return (
-    <div className={styles.container} onClick={onClick}>
+    <div className={styles.container}>
       <button className={styles.button} style={{width}} onClick={onClick} type="submit">
         <div className={styles.button__line}></div>
         <div className={styles.button__line}></div>

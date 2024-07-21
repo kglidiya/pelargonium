@@ -3,6 +3,7 @@ import styles from './TextArea.module.css';
 
 interface ITextArea {
 	placeholder?: string;
+	value?: string;
 	name: string;
 	register: UseFormRegister<any>;
 	required: boolean;
@@ -15,6 +16,7 @@ interface ITextArea {
 
 const TextArea = ({
 	placeholder,
+	value,
 	name,
 	register,
 	required,
@@ -28,6 +30,7 @@ const TextArea = ({
 			<textarea
 				className={styles.textarea}
 				placeholder={placeholder}
+				value={value}
 				{...register(name, {
 					required,
 					maxLength,

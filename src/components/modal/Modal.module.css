@@ -1,0 +1,53 @@
+.container {
+  /* width: 100%; */
+  height: 100vh;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  /* background-image: url(../../../public/images/output-onlinetools2.png);
+  background-position: left bottom;
+  background-size: 40vh;
+  background-repeat: no-repeat; */
+  
+  /* right: 0; */
+  background-color: #d7d3d3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* transform-origin: top; */
+ }
+
+ .backdrop {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background-color: #b9b9b9;
+  width: 30vw;
+  height: 60vh;
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    border-radius: 0;
+  }
+}

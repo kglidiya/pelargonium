@@ -1,0 +1,40 @@
+.container {
+	cursor: pointer;
+	/* position: relative; */
+	position: fixed;
+	top: 15px;
+	right: 35px;
+	z-index: 77;
+}
+.icon {
+	position: relative;
+}
+/* .counterGroup {
+    position: absolute;
+    top: 0;
+    right: 0;
+  } */
+
+.counter {
+	position: absolute;
+	top: -10px;
+	right: -5px;
+	display: inline-block;
+	font-size: 1rem;
+	font-weight: bold;
+	background-color: red;
+	color: white;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+}
+
+.fill {
+	fill: rgb(97, 97, 104);
+	transition: fill 0.3s linear;
+}
+
+.fill:hover {
+	fill: rgb(23, 23, 24);
+}

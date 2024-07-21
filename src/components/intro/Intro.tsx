@@ -1,14 +1,37 @@
 "use client";
-import React, { useEffect, useRef } from "react";
-import { useMediaQuery } from "../../lib/chakra-ui";
+import React, { useContext, useEffect, useRef } from "react";
+import { useDisclosure, useMediaQuery } from "../../lib/chakra-ui";
 import styles from "./Intro.module.css";
 import Title from "../title/Title";
 import Carousel from "../carousel/Carousel";
 import { useSwipeable } from "react-swipeable";
 import { motion } from "framer-motion";
+import { StoreContext } from "@/app/hoc/StoreProvider";
+import { observer } from "mobx-react-lite";
+import Link from "next/link";
+import CartIcon from "../ui/cart-icon/CartIcon";
+import Overlay from "../overlay/Overlay";
+import Form from "../form/Form";
+import localFont from "next/font/local";
+const gogolFont = localFont({
+  src: [
+    {
+      // path: '../../public/fonts/ofont.ru_Gogol.ttf',
+      // path: '../../public/fonts/ofont.ru_Denistina.ttf',
+      // path: '../../public/fonts/ofont.ru_Nicoletta script.ttf',
+      // path: '../../public/fonts/ofont.ru_Corinthia.ttf' no!,
+      // path: '../../public/fonts/ofont.ru_Marianna.ttf',
+      path: "../../../public/fonts/ofont.ru_LainyDay.ttf",
+      weight: "100",
+      style: "regular",
+    },
+  ],
+  variable: "--gogol-font",
+});
 
-export default function Intro() {
+const Intro = observer(() => {
   const ref = useRef<HTMLDivElement | null>(null);
+  // const store = useContext(StoreContext).store;
   const [tablet] = useMediaQuery("(max-width: 768px)");
   useEffect(() => {
     const setViewHeight = () => {
@@ -26,11 +49,12 @@ export default function Intro() {
 
   const scrollDown = () => {
     // e.preventDefault();
-    // console.log("scrollDown", ref.current?.clientHeight);
+    console.log("scrollDown", ref.current);
+    console.log("window", window);
     // console.log(ref.current?.getBoundingClientRect().height);
     window.scrollTo({
-      // top: ref.current?.clientHeight,
-      top: ref.current?.getBoundingClientRect().height,
+      top: ref.current?.clientHeight,
+      // top: ref.current?.getBoundingClientRect().height,
       left: 0,
       behavior: "smooth",
     });
@@ -57,6 +81,7 @@ export default function Intro() {
   useEffect(() => {
     const scrollContainer = ref.current;
     const onWheel = (e: WheelEvent) => {
+      // e.stopPropagation()
       e.preventDefault();
       if (e.deltaY > 0) {
         scrollDown();
@@ -79,15 +104,25 @@ export default function Intro() {
     handlers.ref(el);
     ref.current = el;
   };
+
   return (
     <motion.section className={styles.intro} {...handlers} ref={refPassthrough}>
       {tablet && <Title text="Сортовые пеларгонии" />}
+
       <div className={styles.mask}>
         {!tablet && (
-          <Title text="Сортовые пеларгонии" width="100%" boxShadow="none" />
+          <motion.h1
+            initial={{ x: "100%" }}
+            animate={{ x: "0" }}
+            transition={{ duration: 0.5 }}
+            className={`${styles.title} ${gogolFont.variable}`}
+          >
+            Сортовые пеларгонии
+          </motion.h1>
         )}
       </div>
       <Carousel />
     </motion.section>
   );
-}
+});
+export default Intro;

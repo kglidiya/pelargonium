@@ -8,16 +8,17 @@
   margin-right: auto; */
 
   text-align: center;
+  vertical-align: middle;
   /* right: 50%; */
   /* transform: translate(50%, 0);  */
   width: fit-content;
-  height: 125px;
+  /* height: 125px; */
   /* width: 400px; */
   background-color: rgb(255, 255, 255);
   z-index: 600;
   /* height: 150px; */
   font-family: var(--gogol-font);
-  padding: 0 30px;
+  padding: 10px 30px 0 30px;
   /* font-style: italic; */
   font-size: 58px;
   font-weight: 100;
@@ -28,13 +29,14 @@
 
 @media (max-width: 1400px) {
   .title {
-    padding: 10px 20px;
+    padding: 10px 20px 0 20px;
   }
 }
 
 @media (max-width: 1200px) {
   .title {
     font-size: 48px;
+    line-height:  48px;
   }
 }
 
@@ -42,11 +44,11 @@
   .title {
     /* position: fixed; */
 
-    width: 70%;
+    /* width: 70%; */
     font-size: 42px;
-    /* padding: 17px 10px 0 10px; */
-    height: 90px;
-    line-height: 25px;
-    vertical-align: middle;
+    padding: 10px 10px 5px 10px;
+    /* height: 90px; */
+    line-height: 42px;
+    /* vertical-align: middle; */
   }
 }

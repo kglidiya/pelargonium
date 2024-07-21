@@ -15,6 +15,7 @@
   margin: auto;
   border: none;
   background: transparent;
+  cursor: pointer;
 }
 .button__text {
   display: flex;

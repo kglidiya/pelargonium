@@ -26,6 +26,9 @@ export default function Title({ text, width, boxShadow }: ITitle) {
   return (
     <Link href={"/"} scroll={false}>
       <h1
+        // initial={{ right: "-30%" }}
+        // animate={{ right: "50%" }}
+        // transition={{ duration: 0.5 }}
         className={`${styles.title} ${gogolFont.variable}`}
         style={{ width, boxShadow }}
       >

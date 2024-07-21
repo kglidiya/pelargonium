@@ -1,10 +1,18 @@
-import React from "react";
+"use client";
+import React, { useContext, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { observer } from "mobx-react-lite";
+import { useStores } from "@/app/hooks/UseStore";
+import { useMediaQuery } from "@chakra-ui/react";
 import styles from "./Card.module.css";
 import Image from "next/image";
 import localFont from "next/font/local";
 import Button from "../ui/button/Button";
 // import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Modal from "../modal/Modal";
+import Form from "../form/Form";
+import { StoreContext } from "@/app/hoc/StoreProvider";
 
 const gogolFont = localFont({
   src: [
@@ -16,10 +24,11 @@ const gogolFont = localFont({
   ],
   variable: "--gogol-font",
 });
-export default function Card({
+const Card = observer(({
   image,
   title,
   available,
+  price,
   id,
   onClick,
 }: {
@@ -27,11 +36,17 @@ export default function Card({
   title: string;
   id: string;
   available: boolean;
+  price: number;
   onClick?: any;
-}) {
-  // const router = useRouter();  // -> Access Next.js Router here
-
-  // console.log(router)
+}) => {
+  const store = useContext(StoreContext).store
+  // console.log("store", store.addItem());
+  const [open, setOpen] = useState(false);
+  const [tablet] = useMediaQuery("(max-width: 768px)");
+  const openModal = () => {
+    setOpen(true);
+  };
+  // console.log(open)
   return (
     <div className={styles.wrapper} onClick={onClick}>
       <div className={styles.buttonContainer}>
@@ -40,6 +55,8 @@ export default function Card({
         <Button
           text={available ? "Заказать" : "Сообщить о поступлении"}
           width="280px"
+          // onClick={() => openModal()}
+          onClick={() => available ? store.addItem({variety: title, qty: 1, image, price}) : openModal()}
         />
       </div>
       <Image
@@ -58,14 +75,63 @@ export default function Card({
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
-            marginTop: "10px"
+            marginTop: "10px",
           }}
         >
           <p className={`${styles.p} ${styles.price}`}>700 руб</p>
           {!available && <p className={styles.p}>Нет в наличии</p>}
         </div>
-        <p className={styles.p} style={{marginBottom: "10px"}}>Подробнее...</p>
+        <p className={styles.p} style={{ marginBottom: "10px" }}>
+          Подробнее...
+        </p>
       </Link>
+      {open && (
+        <Modal isOpen={open} setOpen={setOpen}>
+          <>
+            <Form
+              variety={title}
+              value={`Сообщить о поступлении сорта ${title}`}
+              text="Заказать"
+              width="240px"
+            />
+            <div className={styles.animation}>
+              <motion.div
+                initial={{ y: -100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1 }}
+              >
+                <Image
+                  alt="цветок"
+                  src="/images/geran1.png"
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className={styles.flower}
+                />
+              </motion.div>
+              <motion.div
+                className={styles.bascketContainer}
+                // initial={{ opacity: 0 }}
+                // animate={{ opacity: 1 }}
+                // transition={{ duration: 1 }}
+              >
+                <Image
+                  alt="горшок"
+                  src="/images/bf.png"
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className={styles.bascket}
+                  style={{ zIndex: 7 }}
+                />
+              </motion.div>
+            </div>
+          </>
+        </Modal>
+      )}
+      
     </div>
   );
-}
+});
+
+export default Card;

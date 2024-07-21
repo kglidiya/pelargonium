@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
+import { StoreWrapper } from "./hoc/StoreProvider";
+import CartIcon from "@/components/ui/cart-icon/CartIcon";
+import Overlay from "@/components/overlay/Overlay";
+import Form from "@/components/form/Form";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,8 +33,15 @@ export default function RootLayout({
       </head>
 
       <body className={inter.className}>
-        <main className="main"> {children}</main>
-        {/* <div id="modal-root"></div> */}
+        {" "}
+        <StoreWrapper>
+          {" "}
+          <main className="main">
+            <CartIcon />
+            {children}
+          </main>
+        </StoreWrapper>
+        <div id="modal" />
       </body>
     </html>
   );

@@ -7,10 +7,12 @@ import Carousel from "@/components/carousel/Carousel";
 import ParallaxSection from "@/components/parallax-section/ParalaxSection";
 import Title from "@/components/title/Title";
 import Intro from "@/components/intro/Intro";
+import { StoreWrapper } from "./hoc/StoreProvider";
 
 export default function Home() {
   return (
     <>
+      {" "}
       <Intro />
       <ParallaxSection />
     </>

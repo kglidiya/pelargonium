@@ -29,12 +29,9 @@ export default function Variety({ params: { id } }: Props) {
   };
   return (
     <div className={styles.container}>
-      <NavBackIcon/>
+      <NavBackIcon />
       <Title text={variety.title} />
-      <ButtonOrder
-        text="Заказать"
-        onClick={onOpen}
-      />
+      <ButtonOrder text="Заказать" onClick={onOpen} />
 
       <div className={styles.whiteContainer}>
         <Image
@@ -68,37 +65,9 @@ export default function Variety({ params: { id } }: Props) {
         <VarietySlider images={variety.images} />
       </div>
 
-      {/* <div className={styles.animatedGroup}>
-        <Image
-          alt="fff"
-          src="/images/w6.png"
-          width={0}
-          height={0}
-          sizes="100vw"
-          className={styles.window_white}
-        />
-        <motion.div
-          className={styles.flowerContainer}
-          initial={{ bottom: "0", visibility: "hidden" }}
-          whileInView={{
-            bottom: "29%",
-            visibility: "visible",
-          }}
-          transition={{ duration: 1 }}
-        >
-          <Image
-            alt="fff"
-            src="/images/geran1.png"
-            width={0}
-            height={0}
-            sizes="100vw"
-            className={styles.flower}
-          />
-        </motion.div>
-      </div> */}
       <VarietyAnimation />
 
-      <Overlay onClose={close} isOpen={isOpen}>
+      {/* <Overlay onClose={close} isOpen={isOpen}>
         <div className={styles.formContainer}>
           <Form
             variety={variety.title}
@@ -107,7 +76,7 @@ export default function Variety({ params: { id } }: Props) {
             width="240px"
           />
         </div>
-      </Overlay>
+      </Overlay> */}
     </div>
   );
 }

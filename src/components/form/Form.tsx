@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactNode, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import Input from "../ui/input/Input";
 import { useForm } from "react-hook-form";
 import Spinner from "../ui/spinner/Spinner";
@@ -10,10 +10,17 @@ import Button from "../ui/button/Button";
 interface IForm {
   width: string;
   variety?: string;
-  placeholder: string;
+  placeholder?: string;
   text: string;
+  value?: string;
 }
-export default function Form({ width, variety, placeholder, text }: IForm) {
+export default function Form({
+  width,
+  variety,
+  placeholder,
+  text,
+  value,
+}: IForm) {
   const form = useRef<HTMLFormElement | null>(null);
   const [btnText, setBtnText] = useState<string | ReactNode>(text);
   const {
@@ -26,6 +33,20 @@ export default function Form({ width, variety, placeholder, text }: IForm) {
   } = useForm<any>({
     values: {},
   });
+
+  // const order = [
+  //   { variety: "ffff", quantity: 7 },
+  //   { variety: "sss", quantity: 1 },
+  // ];
+  // const [orderStringified, setOrderStringified] = useState("");
+  // useEffect(() => {
+  //   let res = "";
+  //   order.forEach((item) => {
+  //     res += `сорт: ${item.variety}, кол-во: ${item.quantity}; `;
+  //   });
+  //   setOrderStringified(res);
+  // }, []);
+  // console.log(orderStringified);
   const onSubmit = () => {
     setBtnText(<Spinner />);
 
@@ -86,6 +107,7 @@ export default function Form({ width, variety, placeholder, text }: IForm) {
         name="message"
         error={errors}
         errorMessage="Заполните это поле"
+        value={value && value}
       />
       <input
         type="text"

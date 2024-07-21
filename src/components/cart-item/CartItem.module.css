@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+/* .wrapper:last-of-type {
+    border-bottom: none;
+} */
+.text {
+  color: white;
+  font-size: 18px;
+}
+.image {
+  height: 80px;
+  width: 80px;
+  margin: 10px 0 10px 0;
+  object-fit: cover;
+  flex: none;
+}
+.counter {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .text {
+    font-size: 14px;
+  }
+  .image {
+    height: 50px;
+    width: 50px; 
+  }
+  .counter {
+    gap: 5px;
+  }
+}
