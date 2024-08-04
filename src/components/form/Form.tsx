@@ -7,6 +7,9 @@ import emailjs from "@emailjs/browser";
 import TextArea from "../ui/textarea/TextArea";
 import styles from "./Form.module.css";
 import Button from "../ui/button/Button";
+import { RootState } from "@/redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart } from "@/redux/cart/cartSlice";
 interface IForm {
   width: string;
   variety?: string;
@@ -21,6 +24,8 @@ export default function Form({
   text,
   value,
 }: IForm) {
+  const cart = useSelector((state: RootState) => state.value.cart);
+  const dispatch = useDispatch()
   const form = useRef<HTMLFormElement | null>(null);
   const [btnText, setBtnText] = useState<string | ReactNode>(text);
   const {
@@ -49,7 +54,7 @@ export default function Form({
   // console.log(orderStringified);
   const onSubmit = () => {
     setBtnText(<Spinner />);
-
+    console.log(variety);
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_SERVICE as string,
@@ -64,6 +69,7 @@ export default function Form({
             setTimeout(() => {
               if (form.current) form.current.reset();
               reset();
+              variety?.includes('кол-во') && dispatch(clearCart())
               setBtnText("Отправить");
             }, 1000);
           } else setBtnText("Ошибка");

@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactNode, useContext } from "react";
+import React, { ReactNode, useContext, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./Overlay.module.css";
@@ -10,6 +10,7 @@ import CartItem from "../cart-item/CartItem";
 import { getTotal } from "@/utils/helpers";
 import { useDisclosure } from "@chakra-ui/react";
 import Form from "../form/Form";
+import { useSelector } from "react-redux";
 interface IOverlay {
   onClose: any;
   isOpen: boolean;
@@ -17,9 +18,19 @@ interface IOverlay {
   cart?: any;
 }
 export default function Overlay({ onClose, isOpen, cart }: IOverlay) {
-  const store = useContext(StoreContext).store;
-  // console.log(isOpen);
+  // const store = useContext(StoreContext).store;
+  const [orderStringified, setOrderStringified] = useState("");
+    useEffect(() => {
+    let res = "";
+    cart.forEach((item: any) => {
+      res += `сорт: ${item.variety}, кол-во: ${item.qty}; `;
+    });
+    setOrderStringified(res);
+  }, [cart]);
+  // console.log(orderStringified);
   // const { isOpen, onOpen, onClose } = useDisclosure();
+  // const cart = useSelector((state: RootState) => state.value.cart);
+  // const dispatch = useDispatch()
   return (
     <AnimatePresence>
       {isOpen ? (
@@ -40,13 +51,13 @@ export default function Overlay({ onClose, isOpen, cart }: IOverlay) {
             {cart.length > 0 ? (
               <>
                 <ul className={styles.cart}>
-                  {store.cart.map((el: any, i: number) => {
+                  {cart.map((el: any, i: number) => {
                     return (
                       <CartItem
                         {...el}
                         key={el.variety}
                         borderBottom={
-                          i === store.cart.length - 1
+                          i === cart.length - 1
                             ? "none"
                             : "1px solid white"
                         }
@@ -55,12 +66,12 @@ export default function Overlay({ onClose, isOpen, cart }: IOverlay) {
                   })}
                 </ul>
                 <p className={styles.total}>{`ИТОГО: ${getTotal(
-                  store.cart
+                  cart
                 )} руб.`}</p>
 
                 <div className={styles.formContainer}>
                   <Form
-                    variety={"variety.title"}
+                    variety={orderStringified}
                     placeholder={"Самовывоз/доставка (адрес)"}
                     text="Заказать"
                     width="240px"

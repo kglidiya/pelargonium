@@ -50,11 +50,11 @@ const Intro = observer(() => {
   const scrollDown = () => {
     // e.preventDefault();
     console.log("scrollDown", ref.current);
-    console.log("window", window);
+    // console.log("window", window);
     // console.log(ref.current?.getBoundingClientRect().height);
     window.scrollTo({
+      // top: ref.current?.clientHeight,
       top: ref.current?.clientHeight,
-      // top: ref.current?.getBoundingClientRect().height,
       left: 0,
       behavior: "smooth",
     });

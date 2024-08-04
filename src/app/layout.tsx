@@ -6,6 +6,7 @@ import { StoreWrapper } from "./hoc/StoreProvider";
 import CartIcon from "@/components/ui/cart-icon/CartIcon";
 import Overlay from "@/components/overlay/Overlay";
 import Form from "@/components/form/Form";
+import AppProvider from "@/redux/AppProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,13 +35,14 @@ export default function RootLayout({
 
       <body className={inter.className}>
         {" "}
-        <StoreWrapper>
-          {" "}
+        {/* <StoreWrapper> */}{" "}
+        <AppProvider>
           <main className="main">
             <CartIcon />
             {children}
           </main>
-        </StoreWrapper>
+        </AppProvider>
+        {/* </StoreWrapper> */}
         <div id="modal" />
       </body>
     </html>

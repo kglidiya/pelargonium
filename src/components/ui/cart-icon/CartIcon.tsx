@@ -6,21 +6,26 @@ import { useDisclosure } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import { StoreContext } from "@/app/hoc/StoreProvider";
 import { observer } from "mobx-react-lite";
+import { RootState } from "@/redux/store";
+import { useDispatch, useSelector } from "react-redux";
 
 interface IIcon {
   onClick?: () => void;
   count?: number;
 }
 
-const CartIcon = observer(({ onClick, count }: IIcon) => {
+const CartIcon = ({ onClick, count }: IIcon) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const store = useContext(StoreContext).store;
+  // const store = useContext(StoreContext).store;
+  const cart = useSelector((state: RootState) => state.value.cart);
+  const dispatch = useDispatch()
   const close = (e: React.MouseEvent<HTMLDivElement>) => {
+    // e.preventDefault()
     e.stopPropagation();
     // onClose();
     const target = e.target as HTMLDivElement;
 
-    onClose();
+
     if (target.nodeName === "DIV") {
       onClose();
       // setIsOpen(false)
@@ -32,9 +37,9 @@ const CartIcon = observer(({ onClick, count }: IIcon) => {
       <div className={styles.icon}>
         <span
           className={styles.counter}
-          style={{ display: store.cart.length === 0 ? "none" : "block" }}
+          style={{ display: cart.length === 0 ? "none" : "block" }}
         >
-          {store.cart.length}
+          {cart.length}
         </span>
 
         <svg
@@ -73,8 +78,8 @@ const CartIcon = observer(({ onClick, count }: IIcon) => {
         </svg>
       </div>
 
-      <Overlay onClose={close} isOpen={isOpen} cart={store.cart}/>
+      <Overlay onClose={close} isOpen={isOpen} cart={cart}/>
     </div>
   );
-});
+};
 export default CartIcon;

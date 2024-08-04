@@ -29,9 +29,11 @@ export default class AppStore {
       const cart = this._cart.map((el) => {
         if (el.variety === item.variety) {
           // console.log("ggg", el.price + 1);
+          const cost = el.price / el.qty
+          console.log("cost", cost);
           return {
             ...el,
-            price: el.price * (el.qty + 1),
+            price: cost * (el.qty + 1),
             qty: el.qty++,
           };
         } else return el;

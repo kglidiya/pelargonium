@@ -22,6 +22,7 @@ export default function Variety({ params: { id } }: Props) {
   // console.log(id);
   const close = (e: React.MouseEvent<HTMLDivElement>) => {
     // console.log(e.target)
+    e.stopPropagation()
     const target = e.target as HTMLDivElement;
     if (target.nodeName === "DIV") {
       onClose();

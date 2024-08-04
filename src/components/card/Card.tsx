@@ -13,6 +13,9 @@ import Link from "next/link";
 import Modal from "../modal/Modal";
 import Form from "../form/Form";
 import { StoreContext } from "@/app/hoc/StoreProvider";
+import { RootState } from "@/redux/store";
+import { UseSelector, useDispatch, useSelector } from "react-redux";
+import { addItem } from "@/redux/cart/cartSlice";
 
 const gogolFont = localFont({
   src: [
@@ -24,7 +27,7 @@ const gogolFont = localFont({
   ],
   variable: "--gogol-font",
 });
-const Card = observer(({
+const Card = ({
   image,
   title,
   available,
@@ -39,8 +42,10 @@ const Card = observer(({
   price: number;
   onClick?: any;
 }) => {
-  const store = useContext(StoreContext).store
-  // console.log("store", store.addItem());
+  // const store = useContext(StoreContext).store
+  const cart = useSelector((state: RootState) => state.value.cart);
+  const dispatch = useDispatch();
+  // console.log(cart);
   const [open, setOpen] = useState(false);
   const [tablet] = useMediaQuery("(max-width: 768px)");
   const openModal = () => {
@@ -55,8 +60,12 @@ const Card = observer(({
         <Button
           text={available ? "Заказать" : "Сообщить о поступлении"}
           width="280px"
-          // onClick={() => openModal()}
-          onClick={() => available ? store.addItem({variety: title, qty: 1, image, price}) : openModal()}
+          onClick={() =>
+            available
+              ? dispatch(addItem({ variety: title, qty: 1, image, price }))
+              : openModal()
+          }
+          // onClick={() => available ? store.addItem({variety: title, qty: 1, image, price}) : openModal()}
         />
       </div>
       <Image
@@ -129,9 +138,7 @@ const Card = observer(({
           </>
         </Modal>
       )}
-      
     </div>
   );
-});
-
+};
 export default Card;
