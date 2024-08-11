@@ -54,7 +54,7 @@ export default function Form({
   // console.log(orderStringified);
   const onSubmit = () => {
     setBtnText(<Spinner />);
-    console.log(variety);
+    // console.log(variety);
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_SERVICE as string,

@@ -68,6 +68,19 @@ const Card = ({
           // onClick={() => available ? store.addItem({variety: title, qty: 1, image, price}) : openModal()}
         />
       </div>
+      {/* {image.map((el) => {
+        return (
+          <Image
+            key={image[0]}
+            alt="fff"
+            src={el}
+            width={0}
+            height={0}
+            sizes="100vw"
+            className={styles.image}
+          />
+        );
+      })} */}
       <Image
         alt="fff"
         src={image}

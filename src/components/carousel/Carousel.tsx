@@ -8,8 +8,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useMediaQuery } from "@chakra-ui/react";
 const images = [
-  // { title: "1", image: "/images/18.jpeg" },
-  { title: "1", image: "/images/35.jpeg" },
+  { title: "1", image: "/images/66.jpg" },
+  // { title: "1", image: "/images/35.jpeg" },
   { title: "1", image: "/images/27.jpg" },
   { title: "1", image: "/images/24.jpeg" },
   { title: "1", image: "/images/31.jpg" },
@@ -36,7 +36,7 @@ export default function Carousel() {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     pauseOnHover: false,
     appendDots: (dots: any) => (

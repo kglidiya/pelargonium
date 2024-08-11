@@ -38,3 +38,8 @@
 .fill:hover {
 	fill: rgb(23, 23, 24);
 }
+@media (max-width: 768px) {
+	.container {
+		right: 15px;
+	}
+}

@@ -61,7 +61,7 @@ const Intro = observer(() => {
   };
 
   const scrollTop = () => {
-    console.log("scrollTop");
+    // console.log("scrollTop");
     window.scrollTo({
       top: 0,
       left: 0,
@@ -73,7 +73,7 @@ const Intro = observer(() => {
       scrollTop();
     },
     onSwipedUp: () => {
-      console.log("scrollDown", ref.current?.clientHeight);
+      // console.log("scrollDown", ref.current?.clientHeight);
       scrollDown();
     },
   });

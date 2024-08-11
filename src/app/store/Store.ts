@@ -30,7 +30,7 @@ export default class AppStore {
         if (el.variety === item.variety) {
           // console.log("ggg", el.price + 1);
           const cost = el.price / el.qty
-          console.log("cost", cost);
+          // console.log("cost", cost);
           return {
             ...el,
             price: cost * (el.qty + 1),
@@ -43,7 +43,7 @@ export default class AppStore {
   }
 
   get cart() {
-    console.log(toJS(this._cart));
+    // console.log(toJS(this._cart));
     return this._cart;
   }
 }
