@@ -1,6 +1,6 @@
 .container {
-  background: url("../../../public/images/w1.png") no-repeat 35% 95%/35vh,
-    url("../../../public/images/cover.png") no-repeat 105% 10%/55vh, #dbd9dd;
+  background: url("../../../public/images/w1.png") no-repeat 30% 100%/25vw,
+    url("../../../public/images/cover.png") no-repeat 80% 50%/60vw, #dbd9dd;
   /* rgb(230, 227, 233); */
 }
 /* background: url(../../../public/images/gerani3_mirrow.png) no-repeat left /

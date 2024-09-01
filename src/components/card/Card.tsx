@@ -100,7 +100,7 @@ const Card = ({
             marginTop: "10px",
           }}
         >
-          <p className={`${styles.p} ${styles.price}`}>700 руб</p>
+          <p className={`${styles.p} ${styles.price}`}>{`${price} руб`}</p>
           {!available && <p className={styles.p}>Нет в наличии</p>}
         </div>
         <p className={styles.p} style={{ marginBottom: "10px" }}>

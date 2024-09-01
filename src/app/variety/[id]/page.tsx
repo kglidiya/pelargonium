@@ -12,6 +12,9 @@ import Overlay from "@/components/overlay/Overlay";
 import Form from "@/components/form/Form";
 import VarietyAnimation from "@/components/variety-animation/VarietyAnimation";
 import NavBackIcon from "@/components/ui/nav-back-icon/NavBackIcon";
+import { RootState } from "@/redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "@/redux/cart/cartSlice";
 type Props = {
   params: { id: string };
 };
@@ -19,10 +22,10 @@ export default function Variety({ params: { id } }: Props) {
   const variety = varieties.filter((el: any) => el.id === id)[0];
   const [tablet] = useMediaQuery("(max-width: 768px)");
   const { isOpen, onOpen, onClose } = useDisclosure();
-  // console.log(id);
+  const cart = useSelector((state: RootState) => state.value.cart);
+  const dispatch = useDispatch();
   const close = (e: React.MouseEvent<HTMLDivElement>) => {
-    // console.log(e.target)
-    e.stopPropagation()
+    e.stopPropagation();
     const target = e.target as HTMLDivElement;
     if (target.nodeName === "DIV") {
       onClose();
@@ -32,10 +35,34 @@ export default function Variety({ params: { id } }: Props) {
     <div className={styles.container}>
       <NavBackIcon />
       <Title text={variety.title} />
-      <ButtonOrder text="Заказать" onClick={onOpen} />
+      {/* <ButtonOrder
+        text="Заказать"
+        onClick={() =>
+          dispatch(
+            addItem({
+              variety: variety.title,
+              qty: 1,
+              image: variety.images[0],
+              price: variety.price,
+            })
+          )
+        }
+      /> */}
 
       <div className={styles.whiteContainer}>
-        <Image
+   
+        <div className={styles.description}>
+          <p
+            className={styles.price}
+          >{`Цена ${variety.title}: ${variety.price} руб.`}</p>
+          {variety.description.map((paragraph, i: number) => {
+            return (
+              <p key={i} className={styles.paragraph}>
+                {paragraph}
+              </p>
+            );
+          })}
+           <Image
           alt="fff"
           src="/images/w4.png"
           width={0}
@@ -43,24 +70,33 @@ export default function Variety({ params: { id } }: Props) {
           sizes="100vw"
           className={styles.window_grey}
         />
-
-        <div className={styles.description}>
-          <p className={styles.price}>{"Цена: 800 руб."}</p>
-          <p className={styles.paragraph}>
-            Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский
-            набор слов, но это не совсем так. Его корни уходят в один фрагмент
-            классической латыни 45 года н.э., то есть более двух тысячелетий
-            назад.
-          </p>
-          <p className={styles.paragraph}>
-            Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский
-            набор слов, но это не совсем так. Его корни уходят в один фрагмент
-            классической латыни 45 года н.э., то есть более двух тысячелетий
-            назад. Многие думают, что Lorem Ipsum - взятый с потолка
-            псевдо-латинский набор слов, но это не совсем так. Его корни уходят
-            в один фрагмент классической латыни 45 года н.э.
-          </p>
+         <ButtonOrder
+        text="Заказать"
+        onClick={() =>
+          dispatch(
+            addItem({
+              variety: variety.title,
+              qty: 1,
+              image: variety.images[0],
+              price: variety.price,
+            })
+          )
+        }
+      />
         </div>
+        {/* <ButtonOrder
+        text="Заказать"
+        onClick={() =>
+          dispatch(
+            addItem({
+              variety: variety.title,
+              qty: 1,
+              image: variety.images[0],
+              price: variety.price,
+            })
+          )
+        }
+      /> */}
       </div>
       <div className={styles.slider}>
         <VarietySlider images={variety.images} />

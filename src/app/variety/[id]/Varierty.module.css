@@ -14,8 +14,9 @@
   background-color: white;
   /* margin-top: -125px; */
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   /* position: relative; */
   /* flex-direction: row; */
 
@@ -36,10 +37,15 @@
 
 .description {
     width: 20vw;
-    height: 60vh;
+    /* height: 60vh; */
     margin: 0 100px;
-    overflow: hidden;
+    /* overflow: hidden; */
     text-align: justify;
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
    
 }
 
@@ -61,17 +67,23 @@
 .window_grey {
   width: 20vw;
   height: 20vw;
-  position: absolute;
+  /* position: absolute;
   bottom: 0;
-  left: 0;
+  left: 0; */
   object-fit: contain;
   z-index: 2;
+  margin: auto;
 }
 
 .formContainer {
   width: 40vw;
 }
 
+@media (max-width: 1400px) {
+ .description {
+  margin: 0 50px;
+ }
+}
 @media (max-width: 768px) {
   .container {
     height: 100%;
@@ -81,19 +93,19 @@
     position: absolute;
     width: 100%;
     height: auto;
-/* 
-    display: flex;
-    justify-content: flex-start;
+
+    /* display: flex;
+    justify-content: center;
     align-items: center; */
      top: 145vh;
-     right: 0;
+     /* right: 0; */
      z-index: 2;
      /* background-color: aqua; */
   }
 
   .description {
     width: 90%;
-    margin: 70px auto;
+    margin:  70px auto 0 auto;
   }
   .paragraph {
     font-size: 14px;
@@ -159,8 +171,8 @@
     bottom: 20px;
     width: 60vw;
     height: auto;
-    left: 50%;
-    transform: translate(-50%, 0);
+    /* left: 50%;
+    transform: translate(-50%, 0); */
     object-fit: contain;
   }
   .formContainer {

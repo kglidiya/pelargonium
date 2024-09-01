@@ -17,7 +17,7 @@ const CartItem = observer(
   ({ variety, qty, image, price, borderBottom }: ICartItem) => {
     const cart = useSelector((state: RootState) => state.value.cart);
     const dispatch = useDispatch();
-    console.log(cart);
+    // console.log(cart);
     return (
       <li className={styles.wrapper} style={{ borderBottom }}>
         <div className={styles.counter}>
@@ -47,17 +47,13 @@ const CartItem = observer(
             disabled={false}
             onClick={() => dispatch(addItem({ variety, qty: 1, image, price }))}
           />
-        </div>
-        <TrashIcon onClick={() =>
+            <TrashIcon onClick={() =>
             dispatch(deleteItem({ variety }))
           }/>
-        {/* <button
-          onClick={() =>
+        </div>
+        {/* <TrashIcon onClick={() =>
             dispatch(deleteItem({ variety }))
-          }
-        >
-          del
-        </button> */}
+          }/> */}
       </li>
     );
   }

@@ -12,6 +12,8 @@
 .text {
   color: white;
   font-size: 18px;
+  /* max-width: 25%;
+  overflow: hidden; */
 }
 .image {
   height: 80px;
