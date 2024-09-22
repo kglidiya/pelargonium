@@ -86,7 +86,7 @@ export const cardsData = [
 export const varieties = [
   {
     id: "1",
-    title: "Ю-Мерлезон 2",
+    title: "Ю-Мерлезон2",
     images: [
       "/images/39.jpeg",
       "/images/36.jpeg",

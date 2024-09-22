@@ -44,11 +44,12 @@
   .title {
     /* position: fixed; */
 
-    /* width: 70%; */
+    width: fit-content;
     font-size: 42px;
-    padding: 10px 20px 5px 20px;
+    
+    padding: 10px 20px 10px 20px;
     /* height: 90px; */
-    line-height: 42px;
+    line-height: 38px;
     /* vertical-align: middle; */
   }
 }
