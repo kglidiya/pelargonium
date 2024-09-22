@@ -27,7 +27,6 @@
   z-index: 15;
 }
 .title {
-
   text-align: center;
   vertical-align: middle;
   width: 100%;
@@ -44,12 +43,15 @@
 }
 @media (max-width: 768px) {
   .mask {
-    top: 55vh;
+    top: 55%;
     height: 45%;
     width: 100%;
+    /* background: url("../../../public/images/cover3.png") no-repeat 50% 50%/90%,
+      #dbd9dd00; */
     background: url(../../../public/images/cover3.png);
+
     background-size: cover;
-    background-position: center;
+    background-position:top center;
     background-repeat: no-repeat;
   }
 
