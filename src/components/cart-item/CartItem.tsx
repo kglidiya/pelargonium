@@ -2,8 +2,8 @@
 import React from "react";
 import styles from "./CartItem.module.css";
 import { IItem } from "@/utils/types";
-import ButtonDecrement from "../ui/buttonDecrement/ButtonDecrement";
-import ButtonIncrement from "../ui/buttonIncrement/ButtonIncrement";
+import ButtonDecrement from "../ui/button-decrement/ButtonDecrement";
+import ButtonIncrement from "../ui/button-increment/ButtonIncrement";
 import Image from "next/image";
 import { observer } from "mobx-react-lite";
 import { RootState } from "@/redux/store";
@@ -47,9 +47,7 @@ const CartItem = observer(
             disabled={false}
             onClick={() => dispatch(addItem({ variety, qty: 1, image, price }))}
           />
-            <TrashIcon onClick={() =>
-            dispatch(deleteItem({ variety }))
-          }/>
+          <TrashIcon onClick={() => dispatch(deleteItem({ variety }))} />
         </div>
         {/* <TrashIcon onClick={() =>
             dispatch(deleteItem({ variety }))

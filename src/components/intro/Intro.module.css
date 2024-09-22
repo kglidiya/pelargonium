@@ -45,7 +45,7 @@
 @media (max-width: 768px) {
   .mask {
     top: 55vh;
-    height: 45vh;
+    height: 45%;
     width: 100%;
     background: url(../../../public/images/cover3.png);
     background-size: cover;

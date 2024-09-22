@@ -9,11 +9,11 @@ import "slick-carousel/slick/slick-theme.css";
 import { useMediaQuery } from "@chakra-ui/react";
 const images = [
 
-
+  { title: "1", image: "/images/67.jpeg" },
   { title: "1", image: "/images/35.jpeg" },
   { title: "1", image: "/images/53.jpeg" },
   { title: "1", image: "/images/56.jpg" },
-  { title: "1", image: "/images/27.jpg" },
+  // { title: "1", image: "/images/27.jpg" },
   { title: "1", image: "/images/41.jpeg" },
 
 

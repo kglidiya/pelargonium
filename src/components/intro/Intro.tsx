@@ -70,11 +70,10 @@ const Intro = observer(() => {
   };
   const handlers = useSwipeable({
     onSwipedDown: () => {
-      scrollTop();
+      // scrollTop();
     },
     onSwipedUp: () => {
-      // console.log("scrollDown", ref.current?.clientHeight);
-      scrollDown();
+      // scrollDown();
     },
   });
 

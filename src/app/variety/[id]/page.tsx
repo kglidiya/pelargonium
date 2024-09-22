@@ -25,7 +25,7 @@ export default function Variety({ params: { id } }: Props) {
   const cart = useSelector((state: RootState) => state.value.cart);
   const dispatch = useDispatch();
   const close = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
+    // e.stopPropagation();
     const target = e.target as HTMLDivElement;
     if (target.nodeName === "DIV") {
       onClose();

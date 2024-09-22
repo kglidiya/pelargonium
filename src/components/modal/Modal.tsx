@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ClientOnlyPortal from "../ClientOnlyPortal/ClientOnlyPortal";
 import styles from "./Modal.module.css";
 import Title from "../title/Title";
+import PlusIcon from "../ui/icons/plusIcon/PlusIcon";
 export default function Modal({
   isOpen,
   setOpen,
@@ -24,12 +25,17 @@ export default function Modal({
             className={styles.backdrop}
             onClick={(e) => {
               const target = e.target as HTMLDivElement;
-              if(target.id === "#ovelay") {
-                setOpen(false); 
+              if (target.id === "#ovelay") {
+                setOpen(false);
               }
             }}
           >
             <div className={styles.modal}>
+              <span className={styles.closeIcon}>
+                {" "}
+                <PlusIcon onClick={() => setOpen(false)} />
+              </span>
+
               {children}
             </div>
           </motion.div>
